@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+
+{% block title %}Cat-document{% endblock %}
+
+{% block content %}
+
+<style>
+    button {
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    input {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    #searchInput {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: White;
+        transition: all 0.3s ease;
+    }
+
+    #searchInput:focus {
+        border-color: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+    .home {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        background-color: #fff;
+    }
+
+    .content {
+        flex: 1;
+        text-align: left;
+        margin-right: 50px;
+        max-width: 400px;
+    }
+
+    .content a {
+        display: inline-block;
+        text-decoration: none;
+        color: #007bff;
+        padding: 5px;
+        font-size: 18px;
+        border: 1px solid #007bff;
+        border-radius: 15px;
+        margin-top: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .content a:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .wrapper-login {
+        flex: 1;
+        padding: 40px;
+        background: rgba(64, 0, 255, 0.2);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        max-width: 500px;
+    }
+
+    .wrapper-login h1 {
+        margin-bottom: 20px;
+    }
+
+    .btn:hover {
+        text-color: #fff;
+        border: 1px solid rgba(64, 0, 255, 0.6);
+        background-color: rgba(64, 0, 255, 0.6);
+    }
+</style>
+
+<section class="home">
+    <div class="content text-dark">
+        <h2 class="pf">Вже є акаунт?</h2>
+        <p class="df">Вже є акаунт? Ви без проблем зможете зайти
+            на нього внесши свої данні в форму перейшовши
+            по цій кнопці!</p>
+        <a href="/home/profile/" class="pf">Увійти</a>
+    </div>
+    <div class="glass text-light m-3 p-4 wrapper-login">
+        <h1 class="tf">Зареєструватися</h1>
+        <form action="/home/make-document/document/" method="post" enctype="multipart/form-data" id="myForm">
+            <label class="pf" for="name">Введіть імʼя</label><br>
+            <input placeholder="Барсик Старицько" id="name" name="name" type="text" class="df" required><br>
+
+            <label class="pf" for="type">Введіть породу котика</label><br>
+            <input placeholder="Британець" id="type" name="type" type="text" class="df" required><br>
+
+            <label class="pf" for="stat">Введіть стать</label><br>
+            <input placeholder="Кіт або кішка" id="stat" name="stat" class="df" type="text" required><br>
+
+            <label class="pf" for="age">Введіть вік котика</label><br>
+            <input placeholder="8" id="age" name="age" type="text" class="df" required><br>
+
+            <label class="pf" for="email">Введіть Email</label><br>
+            <input placeholder="cat@gmail.com" id="email" name="email" class="df" type="text" required><br>
+
+            <label class="pf" for="password">Введіть пароль</label><br>
+            <input placeholder="12345678" id="password" name="password" class="df" type="text" required><br>
+
+            <label class="pf" for="photo">Виберіть фото</label><br>
+            <input type="file" id="photo" name="photo" class="df btn text-dark btn-light" style="background:none;" required><br><br>
+
+            <button id="PassportID" class="pf btn text-dark btn-light" type="button">Є своє айді документу</button><br>
+
+            <div class="passportid pf" style="display: none;">
+                <label class="pf">Введіть ID паспорту</label><br>
+                <input placeholder="123321" id="passport" name="passport_id" class="df" type="text">
+            </div><br>
+
+            <button type="submit" class="tf btn text-dark btn-light">Клац</button>
+        </form>
+    </div>
+</section>
+
+<script>
+    document.getElementById('PassportID').addEventListener('click', function() {
+        var passportDiv = document.querySelector('.passportid');
+
+        if (passportDiv.style.display === 'none') {
+            passportDiv.style.display = 'block';
+        } else {
+            passportDiv.style.display = 'none';
+        }
+    });
+
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+          var passportInput = document.getElementById("passport").value;
+
+          if (passportInput !== "" && passportInput.length !== 6) {
+            event.preventDefault();
+            alert("Passport ID must contain exactly 6 characters.");
+          }
+    });
+</script>
+
+{% endblock %}

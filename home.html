@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+{% block title %}Cat-home{% endblock %}
+
+{% block content %}
+
+<style>
+    .position1 {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 500px;
+        padding: 20px;
+        margin-right: 15px;
+        margin-left: 15px;
+        padding-left: 100px;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .position1:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .text1 {
+        flex: 1;
+        padding-right: 70px;
+    }
+
+    .position2 {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 500px;
+        margin-right: 15px;
+        margin-left: 15px;
+        padding: 20px;
+        padding-right: 100px;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+
+    }
+
+    .position2:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .text2 {
+        flex: 1;
+        padding-left: 70px;
+        text-align: right;
+    }
+
+    .text-dark {
+        color: #333;
+    }
+
+    .df {
+        margin-top: 30px;
+    }
+
+    .img {
+        width: 250px;
+        height: auto;
+        margin-left: 200px;
+        margin-right: 200px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<div class="position1">
+    <div class="text1">
+    <h2 class="text-dark pf">РАГС</h2>
+    <h5 class="text-dark df">У нашому котячому РАЦСі реєстрація шлюбу — це не лише офіційна процедура, а й святкова подія, яку ваші улюбленці не забудуть.
+        Ми пропонуємо швидку та просту реєстрацію за вигідними цінами, що підійдуть для будь-якого бюджету.
+        Наші спеціалісти піклуються про те, щоб все пройшло гладко та без зайвих клопотів, залишаючи лише приємні спогади.
+        Поспішайте зареєструвати свій особливий день, адже любов — це найбільший скарб, навіть у котячому світі!</h5>
+    </div>
+    <img src="https://zrazok.info/uploads/posts/2016-08/1471235562_1-001.jpg" width="200">
+</div>
+<a href="/home/veterinary_clinic/" style="text-decoration: none;"><div class="position2">
+    <img src="/static/veterinary.jpg" width="250">
+    <div class="text2">
+        <h2 class="text-dark pf">Ветеринарна клініка</h2>
+        <h5 class="text-dark df">Здоров'я ваших котиків для нас понад усе! Наша ветеринарна клініка пропонує широкий спектр послуг за доступними цінами.
+            Професійні лікарі з любов’ю ставляться до кожного пацієнта, незалежно від складності ситуації. Ви можете бути впевнені,
+            що отримаєте якісне обслуговування, а ваш улюбленець — турботу і догляд на найвищому рівні.
+            Від регулярних оглядів до екстрених ситуацій — у нас є все, щоб ваша кішка завжди почувалася чудово.</h5>
+    </div>
+</div></a>
+<a href="/home/wedding/" style="text-decoration: none;"><div class="position1">
+    <div class="text1">
+        <h2 class="text-dark pf">Котяче вінчання</h2>
+        <h5 class="text-dark df">Вінчання — це священний обряд для тих котиків, чия любов настільки сильна, що її варто закріпити перед вищими силами.
+            Ми пропонуємо унікальні церемонії котячого вінчання, які допоможуть
+            створити незабутню атмосферу для вас і ваших улюбленців. Наші спеціалісти подбають про те,
+            щоб цей особливий день пройшов у теплій і затишній атмосфері,
+            з усіма необхідними атрибутами, які відображають глибину почуттів вашої пухнастої пари.</h5>
+    </div>
+    <img src="/static/wedding.jpg" width="250">
+</div></a>
+<a href="/home/photograph/" style="text-decoration: none;"><div class="position2">
+    <img src="/static/photograph.jpg" width="250">
+    <div class="text2">
+        <h2 class="text-dark pf">Послуги фотографа</h2>
+        <h5 class="text-dark df">Відчуйте магію кожного моменту зі своїми котиками!
+            Наші професійні фотографи готові запропонувати вам різні пакети фотосесій на будь-який бюджет.
+            Чи то просте фото для пам’яті, чи шикарна весільна фотосесія — у нас є все необхідне, щоб зафіксувати найцінніші миті.
+            Професійне обладнання, творчий підхід та любов до котячих моделей — усе це гарантує, що ваші фото будуть неперевершеними!</h5>
+    </div>
+</div></a>
+<a href="/home/ceremony/" style="text-decoration: none;"><div class="position1">
+    <div class="text1">
+        <h2 class="text-dark pf">Церемонії</h2>
+        <h5 class="text-dark df">У нас є церемонії для кожного смаку та гаманця! Бюджетні варіанти для тих,
+            хто хоче зекономити, але залишити приємні спогади, або ж преміум-пакети з усіма можливими зручностями та декором.
+            Ми робимо все можливе, щоб кожен котячий весільний день був дійсно особливим, незалежно від бюджету.
+            Довіртеся нам, і ми допоможемо організувати неповторну подію для ваших пухнастих друзів.</h5>
+    </div>
+    <img src="/static/ceremony.jpg" width="250">
+</div></a>
+<a href="/home/honeymoon/" style="text-decoration: none;"><div class="position2">
+    <img src="/static/honey.jpg" width="250">
+    <div class="text2">
+        <h2 class="text-dark pf">Медовий місяць</h2>
+        <h5 class="text-dark df">Для котиків, які вирішили провести незабутній медовий місяць після весілля, ми пропонуємо унікальні подорожі по різним країнам!
+            Від затишних вуличок Парижа до сонячних пляжів Італії — наші тури створені з урахуванням найвибагливіших пухнастиків.</h5>
+    </div>
+</div></a>
+<div class="position1">
+    <div class="text1">
+        <h2 class="text-dark pf">Документи</h2>
+        <h5 class="text-dark df">Оформлення документів для котячого весілля ще ніколи не було таким простим!
+            Ми подбали про те, щоб цей процес був максимально легким і зрозумілим.
+            Ви зможете отримати всі необхідні документи для вашої котячої пари швидко та без зайвих зусиль.
+            Все, що потрібно, — це подати заявку, а решту ми зробимо за вас!</h5>
+    </div>
+    <img src="/static/document.jpg" width="250">
+</div>
+
+
+{% endblock %}

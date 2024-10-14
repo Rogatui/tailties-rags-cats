@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}Cats-bag{% endblock %}
+
+{% block content %}
+
+<style>
+    .imgLogo {
+        width: 1000px;
+        height: 600px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 15px;
+        margin-top: 25px;
+        margin-left: 330px;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    .imgLogo img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+  animation {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  animation:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+      .title {
+        display: flex;
+        flex-direction: column; /* Розміщення елементів вертикально */
+        align-items: center; /* Вирівнювання по горизонталі */
+        justify-content: center; /* Вирівнювання по вертикалі */
+        height: 50vh; /* Займає всю висоту вікна */
+        text-align: center; /* Центрування тексту */
+        background: rgba(255, 255, 255, 0.8); /* Легкий фон для контрасту */
+    }
+
+    .top {
+        margin: 10px;
+    }
+
+    .des {
+        margin: 10px 0 0 0;
+    }
+
+    .hr {
+      margin: 100px;
+    }
+
+  img {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<div class="title">
+  <h1 class="tf top"><b>Tail Ties</b></h1>
+  <h6 class="df des">Пропозиції які ви додали до свого кошику</h6>
+</div><hr class="hr">
+
+{% if position %}
+<div class="row m-5">
+  {% for pos in position %}
+  <div class="col-2 card glass m-5" style="border-radius: 10px;">
+    <img src="{{ pos[5] }}" class="card-img-top " alt="..." style="border-radius: 15px;">
+    <div class="card-body">
+      <h5 class="card-title pf">{{ pos[2] }}</h5>
+      <p class="card-text df">{{ pos[3] }}</p>
+      <form action="{{ url_for('delete', id=pos[0]) }}" method="post" onsubmit="return confirm('Ви впевнені, що хочете видалити цей елемент?');">
+      <button type="submit" class="btn text-light btn-danger df">Видалити</button>
+    </form>
+    </div>
+  </div>
+  {% endfor %}
+  <a href="/home/bag/answer/" class="btn btn-primary text-light d-flex justify-content-end" style="text-decoration: none;">Придбати за {{ sum }} ₴</a>
+</div>
+{% else %}
+<div class="title" style="height: 20vh;">
+  <h6 class="df des" style="font-size: 20px;">Ваша корзина порожня</h6>
+</div>
+{% endif %}
+
+{% endblock %}
+

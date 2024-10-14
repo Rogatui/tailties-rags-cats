@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .home {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        background-color: #fff;
+        min-height: 80vh;
+    }
+
+    .content {
+        flex: 1;
+        text-align: left;
+        margin-right: 50px;
+        max-width: 400px;
+    }
+
+    input {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    #searchInput {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: White;
+        transition: all 0.3s ease;
+    }
+
+    #searchInput:focus {
+        border-color: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .content a {
+        display: inline-block;
+        text-decoration: none;
+        color: #007bff;
+        padding: 5px;
+        font-size: 18px;
+        border: 1px solid #007bff;
+        border-radius: 15px;
+        margin-top: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .content a:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .wrapper-login {
+        flex: 1;
+        padding: 40px;
+        background: rgba(64, 0, 255, 0.2);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border: none;
+        border-radius: 12px;
+        max-width: 500px;
+    }
+
+    .wrapper-login h1 {
+        margin-bottom: 20px;
+    }
+
+    .btn:hover {
+        text-color: #fff;
+        border: 1px solid rgba(64, 0, 255, 0.6);
+        background-color: rgba(64, 0, 255, 0.6);
+    }
+
+    .pass {
+        background: none;
+        border: 2px solid white;
+        border-radius: 15px;
+        padding: 5px;
+    }
+</style>
+
+<section class="home">
+    <div class="content text-dark">
+        <h2 class="pf">Вперше на нашому сайті?</h2>
+        <p class="df">Ти можеш зареєструватися по кнопці нижче
+            та мати доступ до багатьох фішок на сайті!</p>
+        <a href="/home/make-document/" class="pf">Зареєструватися</a>
+    </div>
+{% if error %}<h3 class="text-danger">Помилка</h3> - <h4 class="text-danger">Неправильно введені данні</h4>{% endif %}
+
+    <div class="glass text-light wrapper-login">
+        <h1 class="display-3 tf">Увійти</h1>
+        <form action="/home/sign-in/answer/" method="post">
+            <label class="pf" for="email">Email</label><br>
+            <input class="df" placeholder="abc@gmail.com" id="email" name="email" type="text"><br>
+
+            <label class="pf" for="password">Password</label><br>
+            <input class="df pass" placeholder="123456Abc" id="password" name="password" type="password"><br>
+
+            <label class="pf" for="passport_id">Passport ID</label><br>
+            <input class="df" placeholder="123456" id="passport_id" name="passport_id" type="text"><br><br>
+
+            <button type="submit" class="btn text-dark btn-light tf">Клац</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

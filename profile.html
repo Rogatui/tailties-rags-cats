@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% block title %}Cat-profile{% endblock %}
+
+{% block content %}
+<style>
+    .title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 35vh;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    .top {
+        margin: 10px;
+    }
+
+    .des {
+        margin: 10px 0 0 0;
+    }
+
+    .hr {
+      margin: 100px;
+    }
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.top {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.des {
+    font-size: 16px;
+    color: #555;
+}
+
+.hr {
+    border: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+.home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+}
+
+.content {
+    flex: 1;
+    text-align: center;
+    padding-right: 50px;
+}
+
+.content img {
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.wrapper-login {
+    flex: 1;
+    max-width: 400px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wrapper-login:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+    .odr {
+        margin-left:700px;
+    }
+      img {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<div class="title">
+  <h1 class="tf top"><b>Tail Ties</b></h1>
+  <h6 class="df des">Пропозиції які можуть знадобитися вашим котикам</h6>
+</div><hr class="hr">
+
+<section class="home">
+    <div class="content">
+        <img src="/static/uploads/{{ profile[8] }}.jpg">
+    </div>
+    <div class="wrapper-login">
+        <h1 class="tf">Профіль</h1>
+        <h3 class="pf">Імʼя - {{ profile[1] }}</h3>
+        <h3 class="pf">Порода - {{ profile[2] }}</h3>
+        <h3 class="pf">Стать - {{ profile[3] }}</h3>
+        <h3 class="pf">Вік - {{ profile[4] }}</h3>
+        <h3 class="pf">Паспорт ID - {{ profile[7] }}</h3>
+        <form method="post" action="/home/profile/out/">
+            <button type="submit" class="text-dark btn btn-light">Вийти з аккаунту</button>
+        </form>
+    </div>
+</section>
+
+<hr class="hr">
+{% if cat2 %}
+
+{% endif %}
+<h1 class="tf odr">Одружений(на) з</h1>
+<section class="home">
+    <div class="content">
+        <img src="/static/uploads/{{ cat2[0][8] }}.jpg">
+    </div>
+    <div class="wrapper-login">
+        <h1 class="tf">Профіль</h1>
+        <h3 class="pf">Імʼя - {{ cat2[0][1] }}</h3>
+        <h3 class="pf">Порода - {{ cat2[0][2] }}</h3>
+        <h3 class="pf">Стать - {{ cat2[0][3] }}</h3>
+        <h3 class="pf">Вік - {{ cat2[0][4] }}</h3>
+        <h3 class="pf">Паспорт ID - {{ cat2[0][7] }}</h3>
+        <form method="post" action="/home/profile/out/">
+            <button type="submit" class="text-dark btn btn-light">Вийти з аккаунту</button>
+        </form>
+    </div>
+</section>
+<hr class="hr">
+{% endblock %}

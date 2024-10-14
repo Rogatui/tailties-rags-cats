@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block title %}Cat-wedding{% endblock %}
+
+{% block content %}
+
+<style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .container h1 {
+        font-size: 3em;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .body-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 15px;
+        margin-bottom: 40px;
+        gap: 20px;
+        background: #f9f9f9;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        transition: transform 0.5s ease;
+    }
+
+    .body-item:hover {
+        transform: scale(1.05);
+    }
+
+    .body-item:nth-child(even) {
+        flex-direction: row-reverse; /* Чергуємо напрямок */
+    }
+
+    .body-item img {
+        width: 50%;
+        max-width: 600px;
+        height: auto;
+        border-radius: 15px;
+        transition: transform 0.5s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .body-item img:hover {
+        transform: scale(1.05); /* Ефект збільшення при наведенні */
+    }
+
+    .body-text {
+        flex: 1;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: left;
+    }
+
+    .body-text h5 {
+        font-size: 1.2em;
+        color: #444;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .btn:hover {
+        text-color: #fff;
+        border: 1px solid rgba(64, 0, 255, 0.6);
+        background-color: rgba(64, 0, 255, 0.6);
+    }
+</style>
+
+<div class="container">
+    <h1 class="Display-1 tf">Котяче вінчання</h1>
+
+    <div class="body-item">
+        <img src="/static/wedding.jpg" alt="Котяче вінчання">
+        <div class="body-text">
+            <h5 class="df">Котяче вінчання — це особливе і зворушливе свято, де котики урочисто стають подружжям.
+                На цьому веселому заході поєднуються як комічні, так і милі моменти.
+                Все відбувається в стилі справжнього весілля, тільки в мініатюрному виконанні для пухнастих пар.</h5>
+        </div>
+    </div>
+
+    <div class="body-item">
+        <img src="https://thevesillya.com/images/products/e01141784abde3d725f94e7b20ae049a.jpeg" alt="Котячий собор">
+        <div class="body-text">
+            <h5 class="df">Церемонія може проходити в розкішному котячому соборі або навіть в затишному котячому саду, де стоїть маленька арка, прикрашена іграшковими квітами.
+                Головний ведучий заходу — поважний котячий священик у святковому вбранні.
+                Він виголошує промову про дружбу, любов і котячу солідарність.</h5>
+        </div>
+    </div>
+
+    <div class="body-item">
+        <img src="https://hochu.ua/static/content/thumbs/780x468/3/e5/plx35s---c1080x648x0sx509s--fdb93012ae459fb924311433cfd5be53.jpg" alt="Котячий марш">
+        <div class="body-text">
+            <h5 class="df">Наречений-котик зазвичай одягнений у стильний костюм або смішного метелика, а наречена-котя з’являється в пишній фаті або сукні,
+                прикрашеній бантиками. Під марш весільних дзвіночків вона урочисто ступає по мініатюрній килимовій доріжці,
+                яку часто обсипають крихітними іграшковими мишками чи сухим котячим кормом.</h5>
+        </div>
+    </div>
+
+    <div class="body-item">
+        <img src="https://static.vecteezy.com/system/resources/previews/007/145/746/non_2x/business-agreement-contract-linear-icon-employment-contract-thin-line-illustration-document-paper-with-pen-contour-symbol-isolated-outline-drawing-vector.jpg" alt="Котячий сертифікат">
+        <div class="body-text">
+            <h5 class="df">Після обміну символічними "обручками" (які можуть бути у формі рибок або сердечок),
+                молодята підписують лапками спеціальний сертифікат котячого рагсу.
+                Завершується все святковою котячою вечіркою, де подаються смаколики,
+                і грають м’якенькі іграшки для розваг усіх гостей.</h5><br>
+            <button type="button" class="btn btn-light text-dark tf" onclick="window.location.href='{{ url_for('wedding_bag', wedding=True) }}'">Придбати послугу</button>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

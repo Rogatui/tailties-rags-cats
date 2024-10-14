@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %}Cat-profile{% endblock %}
+
+{% block content %}
+
+<style>
+    .div {
+        text-align: center;
+        margin: 20px auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        max-width: 600px;
+        background-color: rgba(64, 0, 255, 0.2);
+    }
+
+    .title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    .top {
+        margin: 10px;
+    }
+
+    .des {
+        margin: 10px 0 0 0;
+    }
+
+    .hr {
+      margin: 100px;
+    }
+
+    .hr {
+        border: 0;
+        height: 1px;
+        background: #eee;
+        margin: 20px 0;
+    }
+
+    input {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    #searchInput {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: White;
+        transition: all 0.3s ease;
+    }
+
+    #searchInput:focus {
+        border-color: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    button {
+        transition: background-color 0.5s ease;
+    }
+
+    .btn:hover {
+        text-color: #fff;
+        border: 1px solid rgba(64, 0, 255, 0.6);
+        background-color: rgba(64, 0, 255, 0.6);
+    }
+
+    .marg {
+        margin-top: 300px;
+        margin-bottom: 300px;
+    }
+
+</style>
+
+{% if post %}
+
+<div class="div">
+    <h1 class="tf">Дякуємо за замовлення!</h1>
+    <h5 class="df">Ваше замовлення обробиться нашими менеджерами та вам зателефонують для підтвердження замовлення!</h5>
+    <h4 class="pf">Дякуємо за користування нашими послугами</h4>
+</div>
+
+{% else %}
+<div class="title">
+  <h1 class="tf top"><b>Tail Ties</b></h1>
+  <h6 class="df des">Пропозиції які ви додали до свого кошику</h6>
+</div><hr class="hr">
+<form method="post" class="div marg">
+    <label class="tf" for="phone">Введіть номер телефону</label><br>
+    <input class="df" type="text" name="phone" id="phone" placeholder="0951234567" required><br><br>
+
+    <label class="tf" for="data">Введіть дату</label><br>
+    <input type="text" name="data" id="data" placeholder="24 жовтня" class="df" required><br><br>
+
+    <button type="submit" class="btn text-dark btn-light tf">Клац</button>
+</form>
+{% endif %}
+
+{% endblock %}
